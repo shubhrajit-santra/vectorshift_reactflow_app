@@ -2,20 +2,20 @@ import { useState } from 'react';
 import BaseNode from '../components/BaseNode';
 import { Position } from 'reactflow';
 
-export const InputNode = ({ id, data }) => {
-  const [currName, setCurrName] = useState(data?.inputName || id.replace('customInput-', 'input_'));
+export const OptionNode = ({ id, data }) => {
   const [inputType, setInputType] = useState(data?.inputType || 'Text');
 
   return (
     <BaseNode
       id={id}
-      title="Input"
+      title="Option"
       fields={[
         {
-          label: 'Name',
-          type: 'text',
-          value: currName,
-          onChange: (e) => setCurrName(e.target.value),
+          label: 'Type',
+          type: 'select',
+          value: inputType,
+          onChange: (e) => setInputType(e.target.value),
+          options: ['Text', 'File'],
         },
         {
           label: 'Type',
@@ -27,9 +27,14 @@ export const InputNode = ({ id, data }) => {
       ]}
       handles={[
         {
+          type: 'target',
+          position: Position.Left,
+          id: `${id}-valueA`,
+        },
+        {
           type: 'source',
           position: Position.Right,
-          id: `${id}-value`,
+          id: `${id}-valueB`,
         },
       ]}
     />

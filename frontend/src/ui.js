@@ -10,6 +10,11 @@ import { InputNode } from './nodes/inputNode';
 import { LLMNode } from './nodes/llmNode';
 import { OutputNode } from './nodes/outputNode';
 import { TextNode } from './nodes/textNode';
+import { BridgeNode } from './nodes/bridgeNode';
+import { OptionNode } from './nodes/optionNode';
+import { IntersectionNode } from './nodes/intersectionNode';
+import { SourceNode } from './nodes/sourceNode';
+import { SinkNode } from './nodes/sinkNode';
 
 import 'reactflow/dist/style.css';
 
@@ -20,6 +25,11 @@ const nodeTypes = {
   llm: LLMNode,
   customOutput: OutputNode,
   text: TextNode,
+  bridge: BridgeNode,
+  option: OptionNode,
+  intersection: IntersectionNode,
+  source: SourceNode,
+  sink: SinkNode
 };
 
 const selector = (state) => ({
